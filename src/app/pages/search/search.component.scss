@@ -1,0 +1,89 @@
+:host {
+  .search-content {
+    margin: 0 auto;
+    padding: 1rem;
+
+    .w-25 {
+      width: 25%;
+      align-self: center;
+      &.company-logo {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.img-fluid {
+  max-width: 100%;
+}
+
+.ml-1 {
+  margin-left: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.text-center {
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.card {
+  margin: 0 auto;
+  max-width: 650px;
+  padding: 1rem;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.search-text {
+  padding: 7px 6px;
+  height: 28px;
+  width: 100%;
+}
+
+.center {
+  margin: 0 auto;
+  max-width: 620px;
+  padding-bottom: 1rem;
+}
+
+.search-checkbox {
+  cursor: pointer;
+}
+
+.btn-search {
+  padding: 6px;
+  width: 150px;
+}
+
+.pagination {
+  cursor: pointer;
+  color: #ccc;
+
+  .active {
+    color: blue !important;
+  }
+}

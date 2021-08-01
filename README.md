@@ -1,27 +1,14 @@
-# AngularRoutes
+## Angular router best prctices
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
+Sample : Angular routes ใช้ข้อมูล Blognone ในการแสดงผลข้อมูลแต่เนื่องจากติด CORS จึงใช้วิธีการ mockup data แทน
+พร้อมการทำ search with routing
 
-## Development server
+### Note: เนื่องจากเป็นข้อมูล mock การโชว์ข้อมูลจะใช้ได้เฉพาะบางส่วนเท่านั้น
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ในการใช้ฟังก์ชันค้นหา ให้เข้าไปที่เมนู search แล้วพิมพ์ c# หรือไปที่เมนู search แล้วเลือกข้อมูลจาก Paging ได้ไม่เกิน 10 หน้า
+โดยหลักๆ จะเน้นให้ดูตัวอย่างการ เปลี่ยน route เมื่อเลือก filter เป็นหลัก
 
-## Code scaffolding
+### Development & Run
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+npm install
+npm run start

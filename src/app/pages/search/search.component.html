@@ -1,0 +1,118 @@
+<div class="search-content">
+  <div class="d-flex center flex-column">
+    <form [formGroup]="searchForm" class="d-flex flex-column">
+      <div class="d-flex mb-3">
+        <input
+          type="text"
+          class="search-text"
+          (change)="onChange($event)"
+          [value]="searchText"
+        />
+      </div>
+      <div class="d-flex flex-column mb-3">
+        <h3 class="mb-1">JOB TYPE</h3>
+        <ng-container *ngIf="types && types.length > 0">
+          <ng-container *ngFor="let jobType of types">
+            <div class="d-flex flex-row">
+              <label [for]="jobType.CODE" class="search-checkbox">
+                <input
+                  [id]="jobType.CODE"
+                  type="checkbox"
+                  [checked]="jobType.checked"
+                  [value]="jobType.CODE"
+                  (change)="onCheckType($event)"
+                />
+                {{ jobType.DESCR }}
+              </label>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="d-flex flex-column mb-3">
+        <h3 class="mb-1">JOB LEVEL</h3>
+        <ng-container *ngIf="levels && levels.length > 0">
+          <ng-container *ngFor="let level of levels">
+            <div class="d-flex flex-row">
+              <label [for]="level.CODE" class="search-checkbox">
+                <input
+                  [id]="level.CODE"
+                  type="checkbox"
+                  [checked]="level.checked"
+                  [value]="level.CODE"
+                  (change)="onCheckLevel($event)"
+                />
+                {{ level.DESCR }}
+              </label>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="d-flex flex-column mb-3">
+        <h3 class="mb-1">JOB FUNCTION</h3>
+        <ng-container *ngIf="functions && functions.length > 0">
+          <ng-container *ngFor="let func of functions">
+            <div class="d-flex flex-row">
+              <label [for]="func.CODE" class="saerch-checkbox">
+                <input
+                  [id]="func.CODE"
+                  type="checkbox"
+                  [checked]="func.checked"
+                  [value]="func.CODE"
+                  (change)="onCheckFunction($event)"
+                />
+                {{ func.DESCR }}
+              </label>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <button type="button" (click)="onSearch($event)" class="btn btn-search">
+        Search
+      </button>
+    </form>
+  </div>
+  <ng-container *ngIf="searchData && searchData.jobs.length > 0; else loading">
+    <ng-container *ngFor="let job of searchData.jobs">
+      <div
+        class="d-flex flex-row card"
+        [routerLink]="[
+          '/companies/' +
+            job.company.name_th +
+            '/job/' +
+            (job.title | encodeUrl)
+        ]"
+      >
+        <div class="w-25 company-logo">
+          <img [src]="getImage(job.company.logo)" class="img-fluid" />
+        </div>
+        <div class="d-flex flex-column">
+          <div class="mb-3">
+            <h3>{{ job.title }}</h3>
+          </div>
+          <div class="mb-3">{{ job.level }} LEVEL, {{ job.type }}</div>
+          <div class="mb-3">
+            ฿{{ job.salary_min }}-฿{{ job.salary_max }}
+            {{ job.company.name_th || job.company.name_en }}
+          </div>
+          <div class="mb-3">
+            {{ getTags(job.skills) }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="searchData && searchData.jobs.length > 0">
+      <div class="d-flex flex-row text-center mt-3 pagination">
+        <ng-container *ngFor="let page of paging">
+          <div
+            class="ml-1"
+            (click)="pageChange(page)"
+            [ngClass]="{ active: searchData.page == page }"
+          >
+            {{ page }}
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-template #loading>Loading...</ng-template>
+</div>
