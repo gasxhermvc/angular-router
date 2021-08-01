@@ -10,5 +10,6 @@ Sample : Angular routes ใช้ข้อมูล Blognone ในการแ�
 
 ### Development & Run
 
-npm install
-npm run start
+- npm install
+
+- npm run start
